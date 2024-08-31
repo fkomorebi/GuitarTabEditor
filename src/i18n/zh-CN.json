@@ -1,0 +1,10 @@
+{
+  "editor": "编辑器",
+  "production": "结果",
+  "title": "标题",
+  "startFret": "起始品格",
+  "numberOfFret": "品格数量",
+  "numberOfString": "弦数量",
+  "maxNumberError": "不能大于{0}",
+  "download": "下载"
+}
