@@ -3,7 +3,6 @@ import App from './App.vue'
 import { i18n } from '@/i18n'
 // import 'amfe-flexible'
 import '@/styles/index.scss'
-import '@/styles/index.scss'
 
 const app = createApp(App)
 app.use(i18n)

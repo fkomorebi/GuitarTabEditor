@@ -4,6 +4,8 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -12,6 +14,12 @@ export default defineConfig({
       imports: [
         'vue',
       ],
+      resolvers: [
+        ElementPlusResolver()
+      ]
+    }),
+    Components({
+      resolvers: [ElementPlusResolver({importStyle: 'sass'})],
     }),
   ],
   resolve: {
@@ -23,19 +31,8 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         javascriptEnabled: true,
-        // additionalData: `@use "@/styles/index.scss";`,
+        additionalData: `@use "@/styles/element/index.scss" as *;`,
       },
     },
-    postcss: {
-      plugins: [
-        // postCssPxToRem({
-        //   rootValue: 90, // 75表示750设计稿，37.5表示375设计稿
-        //   propList: ['*'], // 需要转换的属性，这里选择全部都进行转换
-        //   selectorBlackList: [
-        //     '#app-wrap'
-        //   ] // 要忽略并保留为px的选择器
-        // })
-      ]
-    }
   },
 })

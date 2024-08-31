@@ -46,21 +46,19 @@ const handleDownload = (type: string) => {
 </script>
 
 <template>
-  <div class="flex flex-column flex-gap-5">
-    <el-form class="flex flex-row flex-gap-5">
+  <div class="flex flex-col gap-5">
+    <el-form class="flex flex-row gap-3">
       <el-input :placeholder="$t('title')" :v-model="title"/>
       <el-input :placeholder="$t('startFret')" type="number" :v-model="startFret"/>
       <el-input :placeholder="$t('numberOfFret')" type="number" :v-model="numberOfFret"/>
       <el-input :placeholder="$t('numberOfString')" type="number" :v-model="numberOfString"/>
     </el-form>
-    <div class="flex flex-center flex-middle flex-gap-10">
       <el-card style="width:100%; height: 100%;">
         <chord-editor :fret-number="numberOfFret" :string-number="numberOfString" @click-fret="handleClickFret" ref="chordEditorDom"/>
       </el-card>
       <el-card style="width:100%; height: 100%;">
         <chord-production ref="chordProductionDom" :chart-config="chartConfig" :chord="chord"/>
       </el-card>
-    </div>
     <el-button @click="handleDownload('')" type="primary">{{ $t('download') }}</el-button>
   </div>
 </template>
